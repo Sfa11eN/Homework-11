@@ -1,14 +1,11 @@
 import java.time.LocalDate;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
         System.out.println("Тема Методы");
         System.out.println("Задание 1");
         yearCheck(1991);
         appVersion(1, 2019);
-        cardDeliveryDays(740);
+        countDaysDelivery(740);
 
     }
 
@@ -47,26 +44,38 @@ public class Main {
         System.out.println("Задание 3");
     }
 
-    public static int printCardDeliveryDays(int distance) {
-        int days = cardDeliveryDays(distance);
-        if (days > 0) {
-            System.out.println("Потребуется дней" + days);
-        } else {
-            System.out.println("Доставка не осуществляется");
-        }
-
-
-        public static int cardDeliveryDays ( int distance){
-            if (distance <= 20) {
-                return 1;
-            } else if (distance <= 60) {
-                return 2;
-            } else if (distance <= 100) {
-                return 3;
-            } else {
-                return -1;
+//    public static void printCardDeliveryDays(int distance) {
+//        int days = cardDeliveryDays(distance);
+//        if (days > 0) {
+//            System.out.println("Потребуется дней " + days);
+//        } else {
+//            System.out.println(" Доставка не осуществляется ");
+//        }
+//    }
+//    public static int cardDeliveryDays ( int distance){
+//        if (distance <= 20) {
+//            return 1;
+//        } else if (distance <= 60) {
+//            return 2;
+//        } else if (distance <= 100) {
+//            return 3;
+//        } else {
+//            return -1;
+//        }
+//    }
+    public static void countDaysDelivery(int deliveryDistance) {
+        byte day = 3;
+        deliveryDistance = (deliveryDistance < 0 ? -deliveryDistance : deliveryDistance);
+        if (deliveryDistance <= 100) {
+            if (deliveryDistance <= 60) {
+                day--;
+                if (deliveryDistance < 20) {
+                    day--;
+                }
             }
+            System.out.println("Потребуется дней: " + day);
+        } else {
+            System.out.println("Извините, доставка невозможна");
         }
-
     }
 }
